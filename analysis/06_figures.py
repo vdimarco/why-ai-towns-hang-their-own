@@ -8,7 +8,7 @@ i = pd.read_csv('indep.csv'); t = i[i.day <= 5].groupby(['fam', 'day']).neff.mea
 f, ax = plt.subplots(figsize=(6.2, 2.6))
 for k, lab in [('claude', 'Claude towns'), ('gpt', 'GPT towns'), ('mixed', 'Mixed Claude + GPT towns')]:
     ax.plot(days, t.loc[k], marker='o', color=C[k], label=lab, lw=2)
-ax.set_xticks(days, [f'Day {d}' for d in days]); ax.set_ylabel('Independent forecasters'); ax.set_ylim(1, 2.4); ax.legend(frameon=False); f.tight_layout(); f.savefig(f'{out}/fig1.png', dpi=220)
+ax.set_xticks(days, [f'Day {d}' for d in days]); ax.set_ylabel('Redundancy index (N_eff)'); ax.set_ylim(1, 2.4); ax.legend(frameon=False); f.tight_layout(); f.savefig(f'{out}/fig1.png', dpi=220)
 a = pd.read_csv('angle1.csv'); x = a[a.ex_top & a.executed.notna()].copy(); x['right'] = x.ex_evil.astype(str) == 'True'
 x['band'] = pd.cut(x.agree, [0, .75, .9, 1.01], labels=['Under 75%', '75 to 90%', '90% and up']); bb = x.groupby('band', observed=True).right.agg(['sum', 'size'])
 f, ax = plt.subplots(figsize=(6.2, 2.2))
