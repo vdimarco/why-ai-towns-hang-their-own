@@ -17,7 +17,7 @@ for j, (lab, row) in enumerate(bb.iterrows()):
     ax.barh(j, r, color=C['good'], label='Executed an evil player' if j == 0 else None); ax.barh(j, w, left=r, color=C['bad'], label='Executed a good player' if j == 0 else None)
     ax.text(r + w + 6, j, f'{round(100 * w / (r + w))}% wrong', va='center')
 ax.set_yticks(range(3), bb.index); ax.invert_yaxis(); ax.set_xlim(0, 420); ax.set_xlabel("Executions of the town's top suspect"); ax.set_ylabel('Town agreement')
-ax.legend(frameon=False, loc='lower right'); f.tight_layout(); f.savefig(f'{out}/fig2.png', dpi=220)
+ax.legend(frameon=False, loc='lower center', bbox_to_anchor=(0.5, 1.0), ncol=2); f.tight_layout(); f.savefig(f'{out}/fig2.png', dpi=220)
 p = pd.read_csv('angle2.csv'); g = p.groupby(['day', 'same']).r.mean().unstack()
 f, ax = plt.subplots(figsize=(6.2, 2.6))
 ax.plot(days, g[1].iloc[:5], marker='o', color=C['mixed'], lw=2, label='Same-model pairs'); ax.plot(days, g[0].iloc[:5], marker='o', color=C['grey'], lw=2, label='Claude-GPT pairs')
