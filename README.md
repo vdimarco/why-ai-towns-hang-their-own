@@ -18,6 +18,12 @@ forecasts are, when the town's group decision fails, and whether copies of one m
 - In mixed Claude + GPT teams, same-model pairs agree more than cross-model pairs (+0.082 correlation, positive
   in 91% of 66 games), after controlling for private whispers.
 
+## Audit
+
+An AI-assisted audit of an earlier draft raised six concerns: agreement on the right answer, whether the measure
+scores independent agents as one, related observations counted as separate, ties, novelty, and claims that change
+with the corrected measure. Appendix B of the report lists each concern, the check and the outcome.
+
 ## Reproduce
 
 ```sh
@@ -36,6 +42,7 @@ It takes about five minutes and needs no API keys. Each step prints the numbers 
 | `analysis/04_stats.py` | Confidence intervals and tests |
 | `analysis/05_aggregation.py` | Aggregation methods (Section 4.4) |
 | `analysis/06_figures.py` | Figures 1 to 3 |
+| `analysis/07_robustness.py` | Game-level bootstrap and tie-aware checks (Appendix B) |
 
 ## What is pre-existing
 

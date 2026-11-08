@@ -9,3 +9,4 @@ python3 "$HERE/analysis/03_executions_lineage.py" "$DATA" | tee executions_linea
 python3 "$HERE/analysis/04_stats.py" "$DATA" | tee stats.txt
 python3 "$HERE/analysis/05_aggregation.py" "$DATA" | tee aggregation.txt
 python3 "$HERE/analysis/06_figures.py" "$OUT"
+python3 "$HERE/analysis/07_robustness.py" "$DATA" | tee robustness.txt
